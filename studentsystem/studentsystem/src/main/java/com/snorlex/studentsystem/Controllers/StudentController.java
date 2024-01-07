@@ -3,6 +3,7 @@ package com.snorlex.studentsystem.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,8 @@ import com.snorlex.studentsystem.Model.Student;
 import com.snorlex.studentsystem.Service.StudentService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/students")
+@CrossOrigin //for frontend connectivity
 public class StudentController {
     
     @Autowired
@@ -27,7 +29,7 @@ public class StudentController {
     }
 
     //read
-    @GetMapping("/students")
+    @GetMapping("/allStudents")
     public List<Student> getAllStudents(){
         return studentService.getStudents();       
     }
